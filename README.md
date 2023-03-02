@@ -62,6 +62,9 @@ This will allow you to create a local account.
 - `Time & language` > `Date & time` > `Time zone`:
   - `(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna`
 
+- `Personalization` > `Taskbar` > `Taskbar behaviors`:
+  - [x] `Show seconds in system tray clock`
+
 #### **Typing** 
 
 - `Time & language` > `Typing` > `Advanced keyboard settings` > `Override for default input method`:
@@ -144,6 +147,8 @@ sudo apt update && sudo apt upgrade -y
 
 Follow the steps in [Windows Subsystem for Linux](#windows-subsystem-for-linux-1)
 
+#### **Fonts**
+
 ### **Applications**
 
 #### **Microsoft Edge**
@@ -179,6 +184,15 @@ TBD
 [Download Visual Studio Code](https://code.visualstudio.com/)
 
 Login to sync all settings and extensions.
+
+Create a `custom.css` in `~/.vscode` with the following content:
+```css
+.explorer-viewlet {
+  font-family: "JetBrainsMono NF" !important;
+}
+```
+
+Restart VSCode with administrative permissions and enable `Custom CSS and JS Loader`.
 
 #### **Oracle VirtualBox**
 [Download VirtualBox](https://www.virtualbox.org/)

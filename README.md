@@ -24,9 +24,9 @@ This will allow you to create a local account.
   - `English (United States)`
 
 - `Time & language` > `Language & region` > `Preferred languages`:
-  - `English (United States)` \
-  - `English (United Kingdom)` \
-  - `English (Germany)` \
+  - `English (United States)`
+  - `English (United Kingdom)`
+  - `English (Germany)`
   - `German (Germany)`
 
 - `Time & language` > `Language & region` > `Country or region`:
@@ -69,22 +69,42 @@ This will allow you to create a local account.
 
 - `Time & language` > `Typing` > `Advanced keyboard settings` > `Language bar options`:
   - `Language Bar` > `Hidden` \
-  - [ ] `Show the Language bar as transparent when inactive` \
-  - [ ] `Show additional Language bar icons in the taskbar` \
+  - [ ] `Show the Language bar as transparent when inactive`
+  - [ ] `Show additional Language bar icons in the taskbar`
   - [ ] `Show text labels on the Language bar`
 
 - `Time & language` > `Typing` > `Advanced keyboard settings` > `Input language hot keys`:
-  - `To turn of Caps Lock` > `Press the CAPS LOCK key` \
-  - `Hot keys for input language:` \
-  - `Between input languages` > `(None)` \
-  - `To English (United Kingdom) - German` > `(None)` \
-  - `To English (United States) - German` > `(None)` \
+  - `To turn of Caps Lock` > `Press the CAPS LOCK key`
+  - `Hot keys for input language:`
+  - `Between input languages` > `(None)`
+  - `To English (United Kingdom) - German` > `(None)`
+  - `To English (United States) - German` > `(None)`
   - `To German (Germany) - German` > `(None)`
 
+#### **Registry**
+
+Disable Web Results in Windows Search:
+
+```cmd
+HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows
+```
+`New` > `Key` with name `Explorer`
+
+```cmd
+HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer
+```
+`New` > `DWORD (32-bit) Value` with name `DisableSearchBoxSuggestions`.
+
+Set the value of the new `DWORD` to `1`.
+
+Reboot the system after all changes are done.
+
 #### **Hyper-V**
+[Virtualization applications don't work together with Hyper-V, Device Guard, and Credential Guard](https://learn.microsoft.com/en-us/troubleshoot/windows-client/application-management/virtualization-apps-not-work-with-hyper-v)
 
 Make sure Hyper-V is disabled, since it cannot work together with other
-virtualization applications:
+virtualization applications. Run the following commands in an elevated
+powershell terminal.
 
 ```powershell
 Get-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V
@@ -94,6 +114,18 @@ If it's enabled, disable it:
 
 ```powershell
 Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-Hypervisor
+```
+
+Reboot the system.
+
+#### **Windows Subsystem for Linux**
+[Install Linux on Windows with WSL](https://learn.microsoft.com/en-us/windows/wsl/install)
+
+To install Linux (Ubuntu by default), run the following command in an elevated
+powershell terminal.
+
+```powershell
+wsl --install
 ```
 
 Reboot the system.
@@ -119,3 +151,9 @@ Reboot the system.
 [Download Epson Drivers](https://epson.com/Support/Printers/All-In-Ones/WorkForce-Series/Epson-WorkForce-Pro-WF-3720/s/SPT_C11CF24201?review-filter=Windows+11)
 
 [Download NAPS2](https://www.naps2.com/)
+
+#### **Oracle VirtualBox**
+[Download VirtualBox](https://www.virtualbox.org/)
+
+#### **HashiCorp Vagrant**
+[Download Vagrant](https://www.vagrantup.com/)

@@ -60,26 +60,26 @@ This will allow you to create a local account.
 
 #### **Typing** 
 
-- `Time & language` > `Typing` > `Advanced keyboard settings` > `Override for default input method`:
-  > `Use language list (recommended)`
+- `Time & language` > `Typing` > `Advanced keyboard settings` > `Override for default input method`: \
+  `Use language list (recommended)`
 
-- `Time & language` > `Typing` > `Advanced keyboard settings` > `Switching input methods`:
-  > [ ] `Let me use a differernt input method for each app window` \
-  > [x] `Use the desktop langugae bar when it's available`
+- `Time & language` > `Typing` > `Advanced keyboard settings` > `Switching input methods`: \
+  [ ] `Let me use a differernt input method for each app window` \
+  [x] `Use the desktop langugae bar when it's available`
 
-- `Time & language` > `Typing` > `Advanced keyboard settings` > `Language bar options`:
-  > `Language Bar` > `Hidden` \
-  > [ ] `Show the Language bar as transparent when inactive` \
-  > [ ] `Show additional Language bar icons in the taskbar` \
-  > [ ] `Show text labels on the Language bar`
+- `Time & language` > `Typing` > `Advanced keyboard settings` > `Language bar options`: \
+  `Language Bar` > `Hidden` \
+  [ ] `Show the Language bar as transparent when inactive` \
+  [ ] `Show additional Language bar icons in the taskbar` \
+  [ ] `Show text labels on the Language bar`
 
-- `Time & language` > `Typing` > `Advanced keyboard settings` > `Input language hot keys`:
-  > `To turn of Caps Lock` > `Press the CAPS LOCK key` \
-  > `Hot keys for input language:` \
-  > `Between input languages` > `(None)` \
-  > `To English (United Kingdom) - German` > `(None)` \
-  > `To English (United States) - German` > `(None)` \
-  > `To German (Germany) - German` > `(None)`
+- `Time & language` > `Typing` > `Advanced keyboard settings` > `Input language hot keys`: \
+  `To turn of Caps Lock` > `Press the CAPS LOCK key` \
+  `Hot keys for input language:` \
+  `Between input languages` > `(None)` \
+  `To English (United Kingdom) - German` > `(None)` \
+  `To English (United States) - German` > `(None)` \
+  `To German (Germany) - German` > `(None)`
 
 #### **Hyper-V**
 

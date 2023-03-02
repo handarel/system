@@ -21,65 +21,65 @@ This will allow you to create a local account.
 #### **Languages**
 
 - `Time & language` > `Language & region` > `Windows display language`:
-  > `English (United States)`
+  - `English (United States)`
 
 - `Time & language` > `Language & region` > `Preferred languages`:
-  > `English (United States)` \
-  > `English (United Kingdom)` \
-  > `English (Germany)` \
-  > `German (Germany)`
+  - `English (United States)` \
+  - `English (United Kingdom)` \
+  - `English (Germany)` \
+  - `German (Germany)`
 
 - `Time & language` > `Language & region` > `Country or region`:
-  > `Germany`
+  - `Germany`
 
 - `Time & language` > `Language & region` > `Regional formats` > `Calendar`:
-  > `Gregorian Calendar`
+  - `Gregorian Calendar`
 
 - `Time & language` > `Language & region` > `Regional formats` > `First day of week`:
-  > `Monday`
+  - `Monday`
 
 - `Time & language` > `Language & region` > `Regional formats` > `Short date`:
-  > `2017-04-05`
+  - `2017-04-05`
 
 - `Time & language` > `Language & region` > `Regional formats` > `Long date`:
-  > `Wednesday, April 5, 2017`
+  - `Wednesday, April 5, 2017`
 
 - `Time & language` > `Language & region` > `Regional formats` > `Short time`:
-  > `09:40`
+  - `09:40`
 
 - `Time & language` > `Language & region` > `Regional formats` > `Long time`:
-  > `09:40:07`
+  - `09:40:07`
 
 - `Time & language` > `Language & region` > `Regional formats` > `Standard digits`:
-  > `0123456789`
+  - `0123456789`
 
 #### **Date & Time**
 
 - `Time & language` > `Date & time` > `Time zone`:
-  > `(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna`
+  - `(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna`
 
 #### **Typing** 
 
-- `Time & language` > `Typing` > `Advanced keyboard settings` > `Override for default input method`: \
-  `Use language list (recommended)`
+- `Time & language` > `Typing` > `Advanced keyboard settings` > `Override for default input method`:
+  - `Use language list (recommended)`
 
-- `Time & language` > `Typing` > `Advanced keyboard settings` > `Switching input methods`: \
-  [ ] `Let me use a differernt input method for each app window` \
-  [x] `Use the desktop langugae bar when it's available`
+- `Time & language` > `Typing` > `Advanced keyboard settings` > `Switching input methods`:
+  - [ ] `Let me use a differernt input method for each app window`
+  - [x] `Use the desktop langugae bar when it's available`
 
-- `Time & language` > `Typing` > `Advanced keyboard settings` > `Language bar options`: \
-  `Language Bar` > `Hidden` \
-  [ ] `Show the Language bar as transparent when inactive` \
-  [ ] `Show additional Language bar icons in the taskbar` \
-  [ ] `Show text labels on the Language bar`
+- `Time & language` > `Typing` > `Advanced keyboard settings` > `Language bar options`:
+  - `Language Bar` > `Hidden` \
+  - [ ] `Show the Language bar as transparent when inactive` \
+  - [ ] `Show additional Language bar icons in the taskbar` \
+  - [ ] `Show text labels on the Language bar`
 
-- `Time & language` > `Typing` > `Advanced keyboard settings` > `Input language hot keys`: \
-  `To turn of Caps Lock` > `Press the CAPS LOCK key` \
-  `Hot keys for input language:` \
-  `Between input languages` > `(None)` \
-  `To English (United Kingdom) - German` > `(None)` \
-  `To English (United States) - German` > `(None)` \
-  `To German (Germany) - German` > `(None)`
+- `Time & language` > `Typing` > `Advanced keyboard settings` > `Input language hot keys`:
+  - `To turn of Caps Lock` > `Press the CAPS LOCK key` \
+  - `Hot keys for input language:` \
+  - `Between input languages` > `(None)` \
+  - `To English (United Kingdom) - German` > `(None)` \
+  - `To English (United States) - German` > `(None)` \
+  - `To German (Germany) - German` > `(None)`
 
 #### **Hyper-V**
 

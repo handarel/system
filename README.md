@@ -1,7 +1,7 @@
 # System setups
-How to setup my personal systems.
+How to setup my personal computers.
 
-## Windows 11
+## Windows 11 (Home & Pro)
 
 ### **Installation**
 
@@ -17,6 +17,10 @@ OOBE\BYPASSNRO
 This will allow you to create a local account.
 
 ### **Settings**
+
+#### **Network & Internet**
+
+- `Network & Internet` > `Properties`: Mark as `Private Network`
 
 #### **Languages**
 
@@ -130,19 +134,38 @@ wsl --install
 
 Reboot the system.
 
+Create the default linux user.
+
+Update system:
+
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
+Follow the steps in [Windows Subsystem for Linux](#windows-subsystem-for-linux-1)
+
 ### **Applications**
 
 #### **Microsoft Edge**
-
+TBD
 
 #### **Mozilla Firefox**
 [Download Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/)
+
+Login with the account to sync history and extensions. Make sure all extensions
+can be run in private windows.
+
+Additional changes in settings:
+
+`Search` > `Search Shortcuts` remove all Search Engines.
 
 `about:config`:
 - `browser.link.open_newwindow.restriction`: `0`
 
 #### **Google Chrome**
 [Download Google Chrome](https://www.google.com/chrome/)
+
+TBD
 
 #### **Bitwarden**
 [Download Bitwarden](https://bitwarden.com/download/)
@@ -152,8 +175,144 @@ Reboot the system.
 
 [Download NAPS2](https://www.naps2.com/)
 
+#### **Visual Studio Code**
+[Download Visual Studio Code](https://code.visualstudio.com/)
+
+Login to sync all settings and extensions.
+
 #### **Oracle VirtualBox**
 [Download VirtualBox](https://www.virtualbox.org/)
 
 #### **HashiCorp Vagrant**
 [Download Vagrant](https://www.vagrantup.com/)
+
+#### **Docker Desktop**
+[Download Docker Desktop](https://www.docker.com/products/docker-desktop/)
+
+To use Docker on Windows without Docker Desktop it, needs to be installed in
+WSL.
+
+Disable Docker integration in WSL2:
+
+`Settings` > `Resources` > `WSL Integration`: Disable all
+
+To make sure containers don't have DNS problems, add this to the Docker
+configuration:
+
+```json
+{
+  "dns": ["1.1.1.1", "1.0.0.1", "8.8.8.8", "8.8.4.4"]
+}
+```
+
+### **Windows Subsystem for Linux**
+
+#### **Network & DNS**
+[Custom DNS settings for WSL](https://superuser.com/questions/1533291/how-do-i-change-the-dns-settings-for-wsl2)
+
+1. To disable the generation of `/etc/resolv.conf`, write into `/etc/wsl.conf`:
+    ```ini
+    [network]
+    generateResolvConf = false
+    ```
+
+2. Restart WSL:
+    ```powershell
+    wsl --shutdown
+    ```
+
+3. Open a new WSL terminal.
+
+4. Write into `/etc/resolv.conf`:
+    ```ini
+    nameserver 1.1.1.1
+    nameserver 1.0.0.1
+    nameserver 8.8.8.8
+    nameserver 8.8.4.4
+    ```
+
+2. Restart WSL:
+    ```powershell
+    wsl --shutdown
+    ```
+
+#### **Custom Shell**
+
+1. Install `oh-my-posh`:
+    ```bash
+    sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh
+    ```
+    ```bash
+    sudo chmod +x /usr/local/bin/oh-my-posh
+    ```
+
+2. Install `zsh`:
+    ```bash
+    sudo apt install zsh
+    ```
+
+3. Install `oh-my-zsh`:
+    ```bash
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    ```
+
+4. Install `oh-my-zsh` plugins:
+    ```bash
+    git clone https://github.com/zsh-users/zsh-autosuggestions "${HOME}/.oh-my-zsh/custom/plugins/zsh-autosuggestions" --depth 1 \
+    && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${HOME}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" --depth 1 \
+    && git clone https://github.com/zsh-users/zsh-history-substring-search "${HOME}/.oh-my-zsh/custom/plugins/zsh-history-substring-search" --depth 1 \
+    && git clone https://github.com/hlissner/zsh-autopair "${HOME}/.oh-my-zsh/custom/plugins/zsh-autopair" --depth 1
+    ```
+
+5. Add `.dircolors`:
+    ```bash
+    dircolors --print-database > ~/.dircolors
+    ```
+
+6. Add to `.zshrc`:
+    ```bash
+    export ZSH="$HOME/.oh-my-zsh"
+    export HIST_STAMPS="%Y-%m-%d %T"
+
+    zstyle ':omz:update' mode disabled
+
+    plugins=(
+      git
+      git-auto-fetch
+      command-not-found
+      dotenv
+      gpg-agent
+      ssh-agent
+      rsync
+      zsh-autopair
+      zsh-autosuggestions
+      zsh-syntax-highlighting
+      zsh-history-substring-search
+    )
+
+    source $ZSH/oh-my-zsh.sh
+
+    eval "$(dircolors ~/.dircolors)"
+    eval "$(oh-my-posh init zsh --config /mnt/c/Users/handarel/AppData/Local/Programs/oh-my-posh/themes/quick-term.omp.json)"
+
+    function llc() {
+      /usr/bin/ls -hlvA --time-style="+%Y-%m-%d %H:%M:%S" --group-directories-first --color=always $1 | awk '
+        BEGIN {
+          FPAT = "([[:space:]]*[^[:space:]]+)";
+          OFS = "";
+        }
+        {
+          $1 = "\033[38;2;222;222;222m" $1 "\033[0m"; # permissions
+          $2 = "\033[38;2;97;214;214m"  $2 "\033[0m"; # directory size
+          $3 = "\033[38;2;222;222;222m" $3 "\033[0m"; # user
+          $4 = "\033[38;2;222;222;222m" $4 "\033[0m"; # group
+          $5 = "\033[38;2;97;214;214m"  $5 "\033[0m"; # size
+          $6 = "\033[38;2;222;222;222m" $6 "\033[0m"; # date
+          $7 = "\033[38;2;120;120;120m" $7 "\033[0m"; # time
+          # $8 = "\033[38;2;80;80;80m"    $8 "\033[0m"; # timezone
+          print
+        }
+      '
+    }
+    alias ll="llc"
+    ```

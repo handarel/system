@@ -257,7 +257,7 @@ configuration:
 #### **Network & DNS**
 [Custom DNS settings for WSL](https://superuser.com/questions/1533291/how-do-i-change-the-dns-settings-for-wsl2)
 
-1. To disable the generation of `/etc/resolv.conf`, write into `/etc/wsl.conf`:
+1. To disable the generation of `/etc/resolv.conf`, paste into `/etc/wsl.conf`:
     ```ini
     [network]
     generateResolvConf = false

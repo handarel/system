@@ -20,73 +20,73 @@ This will allow you to create a local account.
 
 #### **Network & Internet**
 
-- `Network & Internet` > `Properties`: Mark as `Private Network`
+- Network & Internet `>` Properties: Mark as `Private Network`
 
 #### **Languages**
 
-- `Time & language` > `Language & region` > `Windows display language`:
+- Time & language `>` Language & region `>` Windows display language:
   - `English (United States)`
 
-- `Time & language` > `Language & region` > `Preferred languages`:
+- Time & language `>` Language & region `>` Preferred languages:
   - `English (United States)`
   - `English (United Kingdom)`
   - `English (Germany)`
   - `German (Germany)`
 
-- `Time & language` > `Language & region` > `Country or region`:
+- Time & language `>` Language & region `>` Country or region:
   - `Germany`
 
-- `Time & language` > `Language & region` > `Regional formats` > `Calendar`:
+- Time & language `>` Language & region `>` Regional formats `>` Calendar:
   - `Gregorian Calendar`
 
-- `Time & language` > `Language & region` > `Regional formats` > `First day of week`:
+- Time & language `>` Language & region `>` Regional formats `>` First day of week:
   - `Monday`
 
-- `Time & language` > `Language & region` > `Regional formats` > `Short date`:
+- Time & language `>` Language & region `>` Regional formats `>` Short date:
   - `2017-04-05`
 
-- `Time & language` > `Language & region` > `Regional formats` > `Long date`:
+- Time & language `>` Language & region `>` Regional formats `>` Long date:
   - `Wednesday, April 5, 2017`
 
-- `Time & language` > `Language & region` > `Regional formats` > `Short time`:
+- Time & language `>` Language & region `>` Regional formats `>` Short time:
   - `09:40`
 
-- `Time & language` > `Language & region` > `Regional formats` > `Long time`:
+- Time & language `>` Language & region `>` Regional formats `>` Long time:
   - `09:40:07`
 
-- `Time & language` > `Language & region` > `Regional formats` > `Standard digits`:
+- Time & language `>` Language & region `>` Regional formats `>` Standard digits:
   - `0123456789`
 
 #### **Date & Time**
 
-- `Time & language` > `Date & time` > `Time zone`:
+- Time & language `>` Date & time `>` Time zone:
   - `(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna`
 
-- `Personalization` > `Taskbar` > `Taskbar behaviors`:
+- Personalization `>` Taskbar `>` Taskbar behaviors:
   - [x] `Show seconds in system tray clock`
 
 #### **Typing** 
 
-- `Time & language` > `Typing` > `Advanced keyboard settings` > `Override for default input method`:
+- Time & language `>` Typing `>` Advanced keyboard settings `>` Override for default input method:
   - `Use language list (recommended)`
 
-- `Time & language` > `Typing` > `Advanced keyboard settings` > `Switching input methods`:
+- Time & language `>` Typing `>` Advanced keyboard settings `>` Switching input methods:
   - [ ] `Let me use a differernt input method for each app window`
   - [x] `Use the desktop langugae bar when it's available`
 
-- `Time & language` > `Typing` > `Advanced keyboard settings` > `Language bar options`:
-  - `Language Bar` > `Hidden` \
+- Time & language `>` Typing `>` Advanced keyboard settings `>` Language bar options:
+  - `Language Bar `>` Hidden` \
   - [ ] `Show the Language bar as transparent when inactive`
   - [ ] `Show additional Language bar icons in the taskbar`
   - [ ] `Show text labels on the Language bar`
 
-- `Time & language` > `Typing` > `Advanced keyboard settings` > `Input language hot keys`:
-  - `To turn of Caps Lock` > `Press the CAPS LOCK key`
+- Time & language `>` Typing `>` Advanced keyboard settings `>` Input language hot keys:
+  - `To turn of Caps Lock `>` Press the CAPS LOCK key`
   - `Hot keys for input language:`
-  - `Between input languages` > `(None)`
-  - `To English (United Kingdom) - German` > `(None)`
-  - `To English (United States) - German` > `(None)`
-  - `To German (Germany) - German` > `(None)`
+  - `Between input languages `>` (None)`
+  - `To English (United Kingdom) - German `>` (None)`
+  - `To English (United States) - German `>` (None)`
+  - `To German (Germany) - German `>` (None)`
 
 #### **Registry**
 
@@ -95,12 +95,12 @@ Disable Web Results in Windows Search:
 ```cmd
 HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows
 ```
-`New` > `Key` with name `Explorer`
+`New `>` Key` with name `Explorer`
 
 ```cmd
 HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer
 ```
-`New` > `DWORD (32-bit) Value` with name `DisableSearchBoxSuggestions`.
+`New `>` DWORD (32-bit) Value` with name `DisableSearchBoxSuggestions`.
 
 Set the value of the new `DWORD` to `1`.
 
@@ -178,6 +178,42 @@ Follow the steps in [Windows Subsystem for Linux](#windows-subsystem-for-linux-1
 
 #### **Fonts**
 
+1. Set execution policy
+    ```powershell
+    Set-ExecutionPolicy RemoteSigned
+    ```
+
+2. Clone Powerline fonts:
+    ```powershell
+    git clone https://github.com/powerline/fonts.git
+    ```
+
+3. Install Powerline fonts:
+    ```powershell
+    cd fonts
+    ```
+    ```powershell
+    .\install.ps1
+    ```
+
+4. Clone Nerd fonts
+    ```powershell
+    git clone https://github.com/ryanoasis/nerd-fonts.git
+    ```
+
+5. Install Nerd fonts:
+    ```powershell
+    cd nerd-fonts
+    ```
+    ```powershell
+    .\install.ps1
+    ```
+
+6. Reset execution policy (optional):
+    ```powershell
+    Set-ExecutionPolicy Restricted
+    ```
+
 #### **Windows Terminal**
 
 Set the terminal font to `JetBrainsMono NF`.
@@ -195,7 +231,7 @@ can be run in private windows.
 
 Additional changes in settings:
 
-`Search` > `Search Shortcuts` remove all Search Engines.
+`Search `>` Search Shortcuts` remove all Search Engines.
 
 `about:config`:
 - `browser.link.open_newwindow.restriction`: `0`
@@ -241,7 +277,7 @@ WSL.
 
 Disable Docker integration in WSL2:
 
-`Settings` > `Resources` > `WSL Integration`: Disable all
+`Settings `>` Resources `>` WSL Integration`: Disable all
 
 To make sure containers don't have DNS problems, add this to the Docker
 configuration:

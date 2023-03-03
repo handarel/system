@@ -147,7 +147,40 @@ sudo apt update && sudo apt upgrade -y
 
 Follow the steps in [Windows Subsystem for Linux](#windows-subsystem-for-linux-1)
 
+#### **Powershell**
+
+1. Install `oh-my-posh`:
+    ```powershell
+    Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://ohmyposh.dev/install.ps1'))
+    ```
+
+2. Install the latest version of `PowerShellGet`:
+    ```powershell
+    Install-Module -Name PowerShellGet -Force
+    ```
+
+3. Install `PSReadLine`:
+    ```powershell
+    Install-Module PSReadLine
+    ```
+
+4. Create Powershell profile:
+    ```powershell
+    notepad $PROFILE
+    ```
+    ```powershell
+    Import-Module PSReadLine
+    Set-PSReadLineOption -PredictionSource History
+
+    oh-my-posh init pwsh | Invoke-Expression
+    oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/quick-term.omp.json" | Invoke-Expression
+    ```
+
 #### **Fonts**
+
+#### **Windows Terminal**
+
+Set the terminal font to `JetBrainsMono NF`.
 
 ### **Applications**
 
@@ -283,10 +316,13 @@ configuration:
     dircolors --print-database > ~/.dircolors
     ```
 
-6. Add to `.zshrc`:
+6. Change the value of `OTHER_WRITEABLE` to `01;96`
+
+7. Add to `.zshrc`:
     ```bash
     export ZSH="$HOME/.oh-my-zsh"
     export HIST_STAMPS="%Y-%m-%d %T"
+    export POSH_THEMES_PATH="/mnt/c/Users/handarel/AppData/Local/Programs/oh-my-posh/themes"
 
     zstyle ':omz:update' mode disabled
 
@@ -307,7 +343,7 @@ configuration:
     source $ZSH/oh-my-zsh.sh
 
     eval "$(dircolors ~/.dircolors)"
-    eval "$(oh-my-posh init zsh --config /mnt/c/Users/handarel/AppData/Local/Programs/oh-my-posh/themes/quick-term.omp.json)"
+    eval "$(oh-my-posh init zsh --config $POSH_THEMES_PATH/quick-term.omp.json)"
 
     function llc() {
       /usr/bin/ls -hlvA --time-style="+%Y-%m-%d %H:%M:%S" --group-directories-first --color=always $1 | awk '

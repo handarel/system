@@ -244,6 +244,12 @@ TBD
 #### **Bitwarden**
 [Download Bitwarden](https://bitwarden.com/download/)
 
+#### **Microsoft PowerToys**
+[Download PowerToys](https://github.com/microsoft/PowerToys)
+
+#### **OpenVPN Connect**
+[Download OpenVPN](https://openvpn.net/client-connect-vpn-for-windows/)
+
 #### **Printer Drivers**
 [Download Epson Drivers](https://epson.com/Support/Printers/All-In-Ones/WorkForce-Series/Epson-WorkForce-Pro-WF-3720/s/SPT_C11CF24201?review-filter=Windows+11)
 
@@ -277,7 +283,7 @@ WSL.
 
 Disable Docker integration in WSL2:
 
-`Settings `>` Resources `>` WSL Integration`: Disable all
+Settings `>` Resources `>` WSL Integration: Disable all
 
 To make sure containers don't have DNS problems, add this to the Docker
 configuration:
@@ -288,7 +294,24 @@ configuration:
 }
 ```
 
+#### **Spotify**
+
+Setting `>` Storage `>` Change location: `E:\AppData\Spotify`
+
 ### **Windows Subsystem for Linux**
+
+#### **Systemd**
+
+1. To enable systemd support for WSL, paste into `/etc/wsl.conf`:
+    ```ini
+    [boot]
+    systemd=true
+    ```
+
+2. Restart WSL:
+    ```powershell
+    wsl --shutdown
+    ```
 
 #### **Network & DNS**
 [Custom DNS settings for WSL](https://superuser.com/questions/1533291/how-do-i-change-the-dns-settings-for-wsl2)
@@ -401,4 +424,36 @@ configuration:
       '
     }
     alias ll="llc"
+    ```
+
+#### **Docker**
+
+1. Install requirements
+    ```bash
+    sudo apt install curl gnupg ca-certificates lsb-release
+    ```
+
+2. Add Docker GPG key:
+    ```bash
+    sudo mkdir -m 0755 -p /etc/apt/keyrings
+    ```
+    ```bash
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    ```
+
+3. Add Docker repository:
+    ```bash
+    echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    ```
+
+4. Update system:
+    ```bash
+    sudo apt update
+    ```
+
+5. Install Docker:
+    ```bash
+    sudo apt-get install containerd.io docker-ce docker-ce-cli docker-buildx-plugin docker-compose-plugin
     ```

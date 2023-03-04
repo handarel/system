@@ -161,7 +161,7 @@ Follow the steps in [Windows Subsystem for Linux](#windows-subsystem-for-linux-1
 
 3. Install `PSReadLine`:
     ```powershell
-    Install-Module PSReadLine
+    Install-Module PSReadLine -Force
     ```
 
 4. Create Powershell profile:
